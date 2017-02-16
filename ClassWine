@@ -1,0 +1,40 @@
+namespace Winestore\Domain;
+
+class Wine {
+	private $id;
+	private $vintage_year;
+	private $name;
+	private $resource;
+	private $stock;
+	private $price;
+	
+	public function getId(): int {
+		return $this->id;
+	}
+	public function getVintage_year(): int {
+		return $this->vintage_year;
+	}
+	public function getName(): string {
+		return $this->name;
+	}
+	public function getStock(): int {
+		return $this->stock;
+	}
+	public function getBottle(): bool {
+		if ($this->bottle < 1) {
+			return false;
+		} else {
+			$this->stock--;
+			return true;
+		}
+	}
+	public function addBottle() {
+		$this->stock++;
+	}
+	public function getPrice(): float {
+		return $this->price;
+	}	
+}
+# this class contains of public functions, allowing all encapsulated wine properties to be edited from outside of its scope;
+
+?>
