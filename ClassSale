@@ -1,0 +1,37 @@
+<?php
+	
+namespace Winestore\Domain;
+
+class Sale {
+	private $id;
+	private $customer_id;
+	private $item;
+	private $date;
+	
+	public function setCustomerId(int $customerId) {
+		$this->customer_id = $customerId;
+	}
+	public function getId(): int {
+		return $this->id;
+	}
+	public function getCustomerId(): int {
+		return $this->customer_id;
+	}
+	public function getItem(): array {
+		return $this->item;
+	}
+	public function getDate(): string {
+		return $this->date;
+	}
+	public function addItem(int $itemId, int $amount = 1) {
+		if (!isset($this->item[$itemId])) {
+			$this->item[$itemId] = 0;
+		}
+		$this->item[$itemId] += $amount;
+	}
+	public function setItem(array $item) {
+		$this->item = $item;
+	}
+}
+# this class contains of public functions, allowing all encapsulated properties of the sale to be edited from outside of its scope;
+?>
